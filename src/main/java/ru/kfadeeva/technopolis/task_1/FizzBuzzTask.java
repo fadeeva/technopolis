@@ -31,4 +31,9 @@ public class FizzBuzzTask implements FizzBuzz {
             System.out.println("Incorrect input.");
         }
     }
+
+    @Override
+    public String printWithTest(int number) {
+        return null;
+    }
 }
