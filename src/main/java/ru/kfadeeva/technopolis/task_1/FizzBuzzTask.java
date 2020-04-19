@@ -27,15 +27,7 @@ public class FizzBuzzTask implements FizzBuzz {
 
         if(isArgumentsCorrect(from, to)) {
             for(int i = from; i <= to; i++) {
-                if(i % FIZZBUZZ_DIV == 0) {
-                    result.add(FIZZ + BUZZ);
-                } else if(i % FIZZ_DIV == 0) {
-                    result.add(FIZZ);
-                } else if(i % BUZZ_DIV == 0) {
-                    result.add(BUZZ);
-                } else {
-                    result.add(String.valueOf(i));
-                }
+                result.add(transformNumber(i));
             }
         } else {
             throw new IllegalArgumentException("Incorrect Input. You can better. Try again.");
@@ -44,6 +36,18 @@ public class FizzBuzzTask implements FizzBuzz {
         printInConsole(result);
 
         return result;
+    }
+
+    public String transformNumber(int number) {
+        if(number % FIZZBUZZ_DIV == 0) {
+            return FIZZ + BUZZ;
+        } else if(number % FIZZ_DIV == 0) {
+            return FIZZ;
+        } else if(number % BUZZ_DIV == 0) {
+            return BUZZ;
+        } else {
+            return String.valueOf(number);
+        }
     }
 
     public void printInConsole(ArrayList<String> arr) {

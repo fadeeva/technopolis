@@ -43,32 +43,38 @@ public class FizzBuzzTaskTest {
 
     @Test
     public void testFizz() {
-        ArrayList<String> expected = new ArrayList<>(Arrays.asList("Fizz"));
-        assertEquals(expected, fizzBuzzTask.print(3, 3));
-        assertEquals(expected, fizzBuzzTask.print(6, 6));
-        assertEquals(expected, fizzBuzzTask.print(9, 9));
+        String fizz = "Fizz";
+        assertEquals(fizz, fizzBuzzTask.transformNumber(3));
+        assertEquals(fizz, fizzBuzzTask.transformNumber(6));
+        assertEquals(fizz, fizzBuzzTask.transformNumber(9));
     }
 
     @Test
     public void testBuzz() {
-        ArrayList<String> expected = new ArrayList<>(Arrays.asList("Buzz"));
-        assertEquals(expected, fizzBuzzTask.print(5, 5));
-        assertEquals(expected, fizzBuzzTask.print(10, 10));
-        assertEquals(expected, fizzBuzzTask.print(20, 20));
+        String buzz = "Buzz";
+        assertEquals(buzz, fizzBuzzTask.transformNumber(5));
+        assertEquals(buzz, fizzBuzzTask.transformNumber(10));
+        assertEquals(buzz, fizzBuzzTask.transformNumber(20));
     }
 
     @Test
     public void testFizzBuzz() {
-        ArrayList<String> expected = new ArrayList<>(Arrays.asList("FizzBuzz"));
-        assertEquals(expected, fizzBuzzTask.print(15, 15));
-        assertEquals(expected, fizzBuzzTask.print(30, 30));
-        assertEquals(expected, fizzBuzzTask.print(45, 45));
+        String fizzBuzz = "FizzBuzz";
+        assertEquals(fizzBuzz, fizzBuzzTask.transformNumber(15));
+        assertEquals(fizzBuzz, fizzBuzzTask.transformNumber(30));
+        assertEquals(fizzBuzz, fizzBuzzTask.transformNumber(45));
     }
 
     @Test
     public void testNumber() {
-        ArrayList<String> expected = new ArrayList<>(Arrays.asList("1", "2"));
-        assertEquals(expected, fizzBuzzTask.print(1, 2));
+        String number = "1";
+        assertEquals(number, fizzBuzzTask.transformNumber(1));
+
+        number = "7";
+        assertEquals(number, fizzBuzzTask.transformNumber(7));
+
+        number = "79";
+        assertEquals(number, fizzBuzzTask.transformNumber(79));
     }
 
     @Test
