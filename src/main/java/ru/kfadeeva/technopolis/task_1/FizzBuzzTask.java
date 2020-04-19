@@ -14,6 +14,8 @@ public class FizzBuzzTask implements FizzBuzz {
     private static final int BUZZ_DIV = 5;
     private static final int FIZZBUZZ_DIV = 15;
 
+    private static final String DELIMITER = "\n";
+
     public static void main(String[] args) {
         FizzBuzz fizzBuzz = new FizzBuzzTask();
         fizzBuzz.print(LOWER_BOUND, UPPER_BOUND);
@@ -46,14 +48,14 @@ public class FizzBuzzTask implements FizzBuzz {
 
     public void printInConsole(ArrayList<String> arr) {
         for(int i = 0; i < arr.size(); i++) {
-            System.out.println((i + 1) + " is " + arr.get(i));
+            System.out.print(arr.get(i) + DELIMITER);
         }
     }
 
     public Boolean isArgumentsCorrect(int from, int to) {
         return from <= to &&
-              (from >= LOWER_BOUND && to > LOWER_BOUND) &&
-              (from < UPPER_BOUND && to <= UPPER_BOUND);
+              (from >= LOWER_BOUND && to >= LOWER_BOUND) &&
+              (from <= UPPER_BOUND && to <= UPPER_BOUND);
     }
 
 }
