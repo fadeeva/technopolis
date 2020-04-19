@@ -1,6 +1,7 @@
 package ru.kfadeeva.technopolis.task_1;
 
+import java.util.ArrayList;
+
 public interface FizzBuzz {
-    void print(int from, int to);
-    String printWithTest(int number);
+    ArrayList<String> print(int from, int to);
 }

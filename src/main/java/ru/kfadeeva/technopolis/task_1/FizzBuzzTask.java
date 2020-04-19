@@ -1,39 +1,59 @@
 package ru.kfadeeva.technopolis.task_1;
 
+import java.util.ArrayList;
+
 public class FizzBuzzTask implements FizzBuzz {
 
-    private static final int FROM = 1;
-    private static final int TO = 100;
+    private static final int LOWER_BOUND = 1;
+    private static final int UPPER_BOUND = 100;
 
     private static final String FIZZ = "Fizz";
     private static final String BUZZ = "Buzz";
 
+    private static final int FIZZ_DIV = 3;
+    private static final int BUZZ_DIV = 5;
+    private static final int FIZZBUZZ_DIV = 15;
+
     public static void main(String[] args) {
         FizzBuzz fizzBuzz = new FizzBuzzTask();
-        fizzBuzz.print(FROM, TO);
+        fizzBuzz.print(LOWER_BOUND, UPPER_BOUND);
     }
 
     @Override
-    public void print(int from, int to) {
-        if(from < to) {
+    public ArrayList<String> print(int from, int to) {
+        ArrayList<String> result = new ArrayList<String>();
+
+        if(isArgumentsCorrect(from, to)) {
             for(int i = from; i <= to; i++) {
-                if(i % 15 == 0) {
-                    System.out.println(FIZZ + BUZZ);
-                } else if(i % 3 == 0) {
-                    System.out.println(FIZZ);
-                } else if(i % 5 == 0) {
-                    System.out.println(BUZZ);
+                if(i % FIZZBUZZ_DIV == 0) {
+                    result.add(FIZZ + BUZZ);
+                } else if(i % FIZZ_DIV == 0) {
+                    result.add(FIZZ);
+                } else if(i % BUZZ_DIV == 0) {
+                    result.add(BUZZ);
                 } else {
-                    System.out.println(i);
+                    result.add(String.valueOf(i));
                 }
             }
         } else {
-            System.out.println("Incorrect input.");
+            throw new IllegalArgumentException("Incorrect Input. You can better. Try again.");
+        }
+
+        printInConsole(result);
+
+        return result;
+    }
+
+    public void printInConsole(ArrayList<String> arr) {
+        for(int i = 0; i < arr.size(); i++) {
+            System.out.println((i + 1) + " is " + arr.get(i));
         }
     }
 
-    @Override
-    public String printWithTest(int number) {
-        return null;
+    public Boolean isArgumentsCorrect(int from, int to) {
+        return from <= to &&
+              (from >= LOWER_BOUND && to > LOWER_BOUND) &&
+              (from < UPPER_BOUND && to <= UPPER_BOUND);
     }
+
 }
